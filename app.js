@@ -13,6 +13,8 @@ app.use(cors({
 }
 ))
 
+app.set('json spaces', 2)
+
 app.get('/', (req, res) => {
   res.send("hello")
 })
@@ -23,7 +25,7 @@ app.get('/users', (req, res) => {
       res.send({message: err})
     }
 
-    res.status(200).send(results)
+    res.status(200).json(results)
   })
 })
 
