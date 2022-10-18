@@ -4,9 +4,14 @@ const PORT = 5000
 const { uuid } = require('uuidv4')
 const { hash, compare } = require('bcrypt')
 const db = require('./database')
+const cors = require('cors')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(cors({
+  origin: '*'
+}
+))
 
 
 app.get('/', (req, res) => {
